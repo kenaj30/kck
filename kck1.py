@@ -28,9 +28,13 @@ skala2.set_xticks([i*40 for i in range(6)])
 
 plt2=plt.subplot(1,2,2)
 
-tabela_box = [i.iloc[:, 2:].mean(axis=1)*100 for i in tabele]
-plt2.boxplot(tabela_box, showmeans = True, notch = True, boxprops = dict(color = 'blue'), meanprops = dict(marker = 'o', markerfacecolor = 'blue', markeredgecolor = 'blue'))
-#plt2.errorbar(ecolor= "blue")
+tabela_box = [i.iloc[:, 2:].mean(axis=1)*100 for i in tabele] #sprawdzic dane - niepoprane liczenie sredniej???
+plt2.boxplot(tabela_box, showmeans = True, notch = True, showfliers = True,
+             boxprops = dict(color = "blue"),
+             meanprops = dict(marker = "o", markerfacecolor = "blue", markeredgecolor = "blue"),
+             whiskerprops = dict(color = "blue", linestyle = "--", linewidth= 1.5, dashes= (6, 6)),
+             flierprops = dict(marker = "+", markeredgecolor = "blue")
+             )
 plt2.grid(linestyle = "--")
 plt2.set_xticklabels(legenda, rotation = 20)
 plt2.set_ylim(60,100)
