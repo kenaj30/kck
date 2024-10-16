@@ -9,7 +9,7 @@ markery = ["o", "v", "D", "s", "d"] #https://matplotlib.org/stable/api/markers_a
 
 plt.figure(figsize=(8,8))
 
-plt.subplot(1,2,1)
+plt1 = plt.subplot(1,2,1)
 
 for i in range(len(pliki)):
     tabele[i] = pd.read_csv(pliki[i],sep=",",header=0)
@@ -24,9 +24,9 @@ plt.ylim(60,100)
 plt.xlim(0,500)
 skala2 = plt.twiny()
 skala2.set_xticks([i*40 for i in range(6)])
-skala2.tick_params(axis='x', direction='in')
-plt.tick_params(axis='x', direction='in')
-plt.tick_params(axis='y', direction='in')
+skala2.tick_params(axis='x', direction='in', length=6)
+plt1.tick_params(axis='x', direction='in', length=6)
+plt1.tick_params(axis='y', direction='in', length=6)
 
 plt2=plt.subplot(1,2,2)
 
@@ -42,8 +42,8 @@ plt2.grid(linestyle = "--")
 plt2.set_xticklabels(legenda, rotation = 20, fontsize = 11)
 plt2.set_ylim(60,100)
 plt2.yaxis.tick_right()
-plt2.tick_params(axis='x', direction='in')
-plt2.tick_params(axis='y', direction='in')
+plt2.tick_params(axis='x', direction='in', length=6)
+plt2.tick_params(axis='y', direction='in', length=6)
 
 plt.tight_layout()
 #plt.savefig("kck1.png")
